@@ -60,7 +60,6 @@ ul li a:before {
     align-items: center;
     font-size: 5em;
     color: rgba(0, 0, 0, 0.1);
-    border-radius: 50%;
     z-index: -1;
     opacity: 0;
     font-weight: 900;
