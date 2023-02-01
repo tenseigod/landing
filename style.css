@@ -1,170 +1,233 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Roboto, sans-serif;
-}
 
 body {
+    margin: 0;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+}
+
+.background-one {
+    background-color: #151515;
+}
+
+.background-two {
+    background-color: #151515;
+}
+
+.background-three {
+    background-color: #151515;
+}
+
+.link-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    overflow: hidden;
-    background: black;
-}
-
-ul {
+    height: 100%;
     position: relative;
+    z-index: 0;
 }
 
-ul li {
-    list-style: none;
-    text-align: center;
-}
-
-ul li a {
-    color: white;
+a {
+    font-family: "Bungee", cursive;
+    font-size: 2.5em;
     text-decoration: none;
-    font-size: 3em;
-    padding: 5px 20px;
-    display: inline-block;
-    font-weight: 700;
-    transition: 0.5s;
 }
 
-ul:hover li a {
-    color: #0002;
+.link-one {
+    color: #0088cc ;
+    transition: color 1s cubic-bezier(0.32, 0, 0.67, 0);
+    line-height: 1em;
 }
 
-ul li:hover a {
-    color: #000;
-    background: transparent;
+.link-one:hover {
+    color: #111;
+    transition: color 1s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
-ul li:hover:nth-child(6n+3) a {
-    color: white;
-    background: transparent;
-}
-
-ul li a:before {
+.link-one::before {
     content: "";
     position: absolute;
-    top: 50%;
-    left: 40%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 5em;
-    color: rgba(0, 0, 0, 0.1);
     z-index: -1;
-    opacity: 0;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 500px;
-    transition: letter-spacing 0.5s, left 0.7s;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-color: #0088cc ;
+    clip-path: circle(0% at 50% calc(50%));
+    transition: clip-path 1s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-ul li a:hover:before {
-    content: attr(data-text);
-    opacity: 1;
-    left: 50%;
-    letter-spacing: 10px;
-    width: 2000px;
-    height: 2000px;
+.link-one:hover::before {
+    clip-path: circle(100% at 50% 50%);
 }
 
-ul li:nth-child(6n+1) a:before {
-    background-color: #0093E9;
-    background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
-    transition: 1s;
+.link-one::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-color: #151515;
+
+    clip-path: polygon(
+    40% 0%,
+    60% 0%,
+    60% 0%,
+    40% 0%,
+    40% 100%,
+    60% 100%,
+    60% 100%,
+    40% 100%,
+);
+
+    transition: clip-path 1s cubic-bezier(0.65,0,0.35,1);
 }
 
-ul li:nth-child(6n+2) a:before {
-    background-color: #4158D0;
-    background-image: linear-gradient(43deg, #4158D0 0%, #5421e0 46%, #8527dd 100%);
-    transition: 1s;
+.link-one:hover::after {
+    clip-path: polygon(
+        40% 10%,
+        60% 10%,
+        60% 35%,
+        40% 35%,
+        40% 90%,
+        60% 90%,
+        60% 65%,
+        40% 65%
+    );
 }
 
-ul li:nth-child(6n+3) a:before {
+.link-two {
     color: white;
-    opacity: 0.6;
-    background-image: linear-gradient(120deg, #2c2f30 0%, #000000 100%);
-    transition: 1s;
+    transition: color 1s cubic-bezier(0.32, 0, 0.67, 0);
 }
 
-ul li:nth-child(6n+4) a:before {
-    background-color: #00DBDE;
-    background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
-    transition: 1s;
+.link-two:hover {
+    color: #111;
+    transition: color 1s cubic-bezier(0.33, 1, 0.68, 1);
 }
 
-ul li:nth-child(6n+5) a:before {
-    background-color: #FBAB7E;
-    background-image: linear-gradient(62deg, #fbab7e 0%, #f7ce68 100%);
-    transition: 1s;
+.link-two::before {
+    content: '';
+    position: absolute;
+    z-index: -2;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(
+        0% -20%,
+        100% -30%,
+        100%, -10%,
+        0% 0%,
+        0% 130%,
+        100% 120%,
+        100% 100%,
+        0% 110%
+    );
+    background-color: #151515;
+
+    transition: clip-path 1s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-ul li:nth-child(6n+6) a:before {
-    background-color: #FFFFFF;
-    background-image: linear-gradient(180deg, #FFFFFF 0%, #6284FF 50%, #FF0000 100%);
-    transition: 1s;
+.link-two:hover::before {
+    clip-path: polygon(
+        0% 10%,
+        100% 0%,
+        100%, 20%,
+        0% 30%,
+        0% 100%,
+        100% 90%,
+        100% 70%,
+        0% 80%
+    );
 }
 
-.snowContainer {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	left:0;
-	z-index: -1;
+.link-two::after  {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 5ch;
+    height: 5ch;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%) rotate(0deg) scale(0);
+    transition: transform 1s ease;
+    border-radius: 20px;
+
+    background: linear-gradient(to right, #FF3B30, #000000, #00C1F3);
 }
 
-#snow {
-	width: 100%;
-	height: 100%;
-	background-image: url("/snow/snow_1.png"), url("/snow/snow_2.png"), url("/snow/snow_3.png");
-	-webkit-animation: snow 20s linear infinite;
-	-moz-animation: snow 20s linear infinite;
-	-ms-animation: snow 20s linear infinite;
-	animation: snow 20s linear infinite;
+.link-two:hover::after {
+    transform: translate(50%, -50%) rotate(145deg) scale(1);
 }
 
-@keyframes snow {
-	0% {
-		background-position: 0px 0px, 0px 0px, 0px 0px;
-	}
-	100% {
-		background-position: 500px 1000px, 400px 400px, 300px 300px;
-	}
+.link-three {
+    color: #45668e;
 }
 
-@-moz-keyframes snow {
-	0% {
-		background-position: 0px 0px, 0px 0px, 0px 0px;
-	}
-	100% {
-		background-position: 500px 1000px, 400px 400px, 300px 300px;
-	}
+.link-three::after {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    width: 50%;
+    height: 100%;
+    top: 0%;
+    left: 0%;
+    transform: translate(0, -50%) scaleY(0);
+    transition: transform 1s ease;
+    mix-blend-mode: difference;
+
+    clip-path: polygon(
+        20% 60%,
+        100% 60%,
+        100% 40%,
+        20% 40%,
+        20% 0%,
+        60% 0%,
+        60% 20%,
+        20% 20%
+    );
+
+    background-color: #45668e;
 }
 
-@-webkit-keyframes snow {
-	0% {
-		background-position: 0px 0px, 0px 0px, 0px 0px;
-	}
-	100% {
-		background-position: 500px 1000px, 400px 400px, 300px 300px;
-	}
+.link-three:hover::after {
+    transform: translate(0, 0%) scaleY(1);
 }
 
-@-ms-keyframes snow {
-	0% {
-		background-position: 0px 0px, 0px 0px, 0px 0px;
-	}
-	100% {
-		background-position: 500px 1000px, 400px 400px, 300px 300px;
-	}
+.link-three::before {
+    content: '';
+    position: absolute;
+    z-index: 2;
+    width: 50%;
+    height: 100%;
+    bottom: 0%;
+    right: 0%;
+    transform: translate(0, 50%) scaleY(0);
+    transition: transform 1s ease;
+    mix-blend-mode: difference;
+
+    clip-path: polygon(
+        80% 40%,
+        0% 40%,
+        0% 60%,
+        80% 60%,
+        80% 100%,
+        40% 100%,
+        40% 80%,
+        80% 80%
+    );
+
+    background-color: #45668e;
 }
+
+.link-three:hover::before {
+    transform: translate(0, 0%) scaleY(1);
+}
+
